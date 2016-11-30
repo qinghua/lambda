@@ -6,7 +6,7 @@ public class Calculator {
 
     public static void main(String args[]) {
         Calculator calculator1 = new Calculator(new ZeroStrategy());
-        Calculator calculator2 = new Calculator(new PowStrategy());
+        Calculator calculator2 = new Calculator(new PowerStrategy());
         calculator1.calc(5);
         calculator2.calc(5);
     }

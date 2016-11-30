@@ -1,12 +1,12 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 import Model.UserModel;
 
 import static java.util.stream.Collectors.counting;
 import static java.util.stream.Collectors.groupingBy;
+import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.mapping;
 import static java.util.stream.Collectors.partitioningBy;
 import static java.util.stream.Collectors.toList;
@@ -24,7 +24,7 @@ public class Grouping {
         Map<String, List<UserModel>> collection2 = users.stream().collect(groupingBy(UserModel::getName));
         Map<Boolean, Long> collection3 = users.stream().collect(groupingBy(user -> user.isMale(), counting()));
         Map<Boolean, List<String>> collection4 = users.stream().collect(groupingBy(user -> user.isMale(), mapping(UserModel::getName, toList())));
-        String names = users.stream().map(UserModel::getName).collect(Collectors.joining(","));
+        String names = users.stream().map(UserModel::getName).collect(joining(","));
         System.out.println(names);
     }
 }
